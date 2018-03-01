@@ -99,3 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+/.project
+/.pydevproject
+/分享
+*.trs
