@@ -25,6 +25,13 @@ class 讀資料:
 
     @classmethod
     def event換掉(cls, 一逝):
+        外語符號 = {
+            'zh': ('{', '}'),
+            'zyh': ('{', '}'),
+            'en': ('(', ')'),
+            'ja': ('「', '」'),
+        }
+        其他外語 = ('『', '』')
         拍毋著字 = {
             'silencd': 'silence',
             'sile3nce': 'silence',
@@ -45,3 +52,16 @@ class 讀資料:
         if 'type="lexical"' in 一逝:
             型態 = re.search('desc="(.+?)"', 一逝).group(1)
             return '[{}]'.format(型態)
+        if 'type="language"' in 一逝:
+            語言 = re.search('desc="(.+?)"', 一逝).group(1)
+            狀態 = re.search('extent="(.+?)"', 一逝).group(1)
+            try:
+                符號 = 外語符號[語言]
+            except KeyError:
+                符號 = 其他外語
+            if 狀態 == 'begin':
+                return 符號[0]
+            if 狀態 == 'end':
+                return 符號[1]
+            return '{}  {}'.format(*符號)
+        raise RuntimeError('毋知欲按怎處理的event：{}'.format(一逝))
