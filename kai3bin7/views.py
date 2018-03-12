@@ -21,6 +21,6 @@ def thong2tai5(request):
     tai = '\r\n'.join(通用轉漢字臺羅.trs2trs(thong))
     
     response = HttpResponse(tai, content_type='application/text')
-    response['Content-Length'] = len(tai)
+    response['Content-Length'] = len(tai.encode(encoding='utf_8'))
     response['Content-Disposition'] = 'attachment; filename="test.trs"'
     return response
