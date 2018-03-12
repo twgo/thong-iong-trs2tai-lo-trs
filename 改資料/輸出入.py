@@ -42,3 +42,6 @@ class 讀資料:
             if 型態 in 拍毋著字:
                 型態 = 拍毋著字[型態]
             return ' {} '.format(型態.upper())
+        if 'type="lexical"' in 一逝:
+            型態 = re.search('desc="(.+?)"', 一逝).group(1)
+            return '[{}]'.format(型態)
