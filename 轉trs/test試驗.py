@@ -15,6 +15,7 @@ di3 e1 gong1 te2-gong1
 -zia4
 <Sync time="409.946"/>'''
         self.assertEqual(轉('').轉內底(原本), 後來)
+
     def test_外口(self):
         原本 = '''<Sync time="408.335"/>
 zit7-e3 za2-bo2-lang5
