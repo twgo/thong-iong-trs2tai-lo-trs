@@ -7,8 +7,27 @@ from urllib.parse import quote
 
 class 通用轉漢字臺羅:
     @classmethod
+    def trs2trs(cls, 字串):
+        for 一筆 in 讀資料.讀(字串):
+            if isinstance(一筆, str):
+                yield 一筆
+            else:
+                這句 = []
+                for 一个 in 一筆:
+                    if 一个.startswith('<Event'):
+                        這句.append(讀資料.event換掉(一个))
+                    else:
+                        這句.append(一个)
+                原本 = ''.join(這句).strip()
+                臺羅 = 轉(None).轉外口(原本)
+                yield '漢字：{}'.format(通用轉漢字臺羅.揣漢字(臺羅))
+                yield '臺羅：{}'.format(臺羅)
+                yield '通用：{}'.format(原本)
+                yield '原本：{}'.format(原本)
+
+    @classmethod
     def 揣漢字(cls, 音標):
-        if 音標.strip()=='':
+        if 音標.strip() == '':
             return ''
         conn = HTTPSConnection("twisas.iis.sinica.edu.tw")
         網址 = (
@@ -29,19 +48,5 @@ class 通用轉漢字臺羅:
 if __name__ == '__main__':
     通用trs檔名 = '分享/Neighbor/NB-twisas/NB-01.trs'
     with open(通用trs檔名, 'rt') as 通用檔案:
-        for 一筆 in 讀資料.讀(通用檔案.read()):
-            if isinstance(一筆, str):
-                print(一筆)
-            else:
-                這句 = []
-                for 一个 in 一筆:
-                    if 一个.startswith('<Event'):
-                        這句.append(讀資料.event換掉(一个))
-                    else:
-                        這句.append(一个)
-                原本 = ''.join(這句).strip()
-                臺羅 = 轉(None).轉外口(原本)
-                print('漢字：{}'.format(通用轉漢字臺羅.揣漢字(臺羅)))
-                print('臺羅：{}'.format(臺羅))
-                print('通用：{}'.format(原本))
-                print('原本：{}'.format(原本))
+        for 一逝 in 通用轉漢字臺羅.trs2trs(通用檔案.read()):
+            print(一逝)
