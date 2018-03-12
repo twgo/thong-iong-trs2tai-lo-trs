@@ -29,6 +29,7 @@ class 通用轉漢字臺羅:
     def 揣漢字(cls, 音標):
         if 音標.strip() == '':
             return ''
+        return ''
         conn = HTTPSConnection("twisas.iis.sinica.edu.tw")
         網址 = (
             "/%E5%8F%A3%E8%AA%9E%E6%A8%99%E6%BC%A2%E5%AD%97%E6%9C%AC%E8%AA%BF/" +
