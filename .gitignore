@@ -103,3 +103,4 @@ ENV/
 /.pydevproject
 /分享
 *.trs
+/db.sqlite3
