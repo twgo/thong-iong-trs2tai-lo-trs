@@ -3,6 +3,7 @@ from 轉trs.轉人工 import 轉
 from http.client import HTTPSConnection
 import json
 from urllib.parse import quote
+import re
 
 
 class 通用轉漢字臺羅:
@@ -10,7 +11,10 @@ class 通用轉漢字臺羅:
     def trs2trs(cls, 字串):
         for 一筆 in 讀資料.讀(字串):
             if isinstance(一筆, str):
-                yield 一筆
+                if 一筆.startswith('<Trans scribe'):
+                    yield re.sub('<Trans scribe="(.*?)"', '<Trans scribe="sann-pan"', 一筆)
+                else:
+                    yield 一筆
             else:
                 這句 = []
                 for 一个 in 一筆:
