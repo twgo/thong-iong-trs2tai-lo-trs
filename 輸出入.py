@@ -26,7 +26,6 @@ class 通用轉漢字臺羅:
                 臺羅 = 轉(None).轉外口(原本)
                 yield '漢字：{}'.format(通用轉漢字臺羅.揣漢字(臺羅))
                 yield '臺羅：{}'.format(臺羅)
-                yield '通用：{}'.format(原本)
                 yield '原本：{}'.format(原本)
 
     @classmethod
