@@ -30,7 +30,11 @@ class 通用轉漢字臺羅:
                 else:
                     華語字幕 = 切開[0]
                 if 愛漢字:
-                    yield '漢字：{}'.format(通用轉漢字臺羅.揣漢字(臺羅))
+                    try:
+                        漢字 = 通用轉漢字臺羅.揣漢字(臺羅)
+                    except RuntimeError:
+                        漢字 = ''
+                    yield '漢字：{}'.format(漢字)
                 yield '臺羅：{}'.format(臺羅)
                 yield '華語字幕：{}'.format(華語字幕)
 
