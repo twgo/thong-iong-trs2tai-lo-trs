@@ -8,11 +8,11 @@ import re
 
 class 通用轉漢字臺羅:
     @classmethod
-    def trs2trs(cls, 字串, 愛漢字=False):
+    def trs2trs(cls, 新版本名, 字串, 愛漢字=False):
         for 一筆 in 讀資料.讀(字串):
             if isinstance(一筆, str):
                 if 一筆.startswith('<Trans scribe'):
-                    yield re.sub('<Trans scribe="(.*?)"', '<Trans scribe="sann-pan"', 一筆)
+                    yield re.sub('<Trans scribe="(.*?)"', '<Trans scribe="{}"'.format(新版本名), 一筆)
                 else:
                     yield 一筆
             else:
@@ -57,5 +57,5 @@ class 通用轉漢字臺羅:
 if __name__ == '__main__':
     通用trs檔名 = '分享/Neighbor/NB-twisas/NB-01.trs'
     with open(通用trs檔名, 'rt') as 通用檔案:
-        for 一逝 in 通用轉漢字臺羅.trs2trs(通用檔案.read(), 愛漢字=True):
+        for 一逝 in 通用轉漢字臺羅.trs2trs('sann-pan', 通用檔案.read(), 愛漢字=True):
             print(一逝)

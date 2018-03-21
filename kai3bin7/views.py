@@ -25,7 +25,7 @@ def thuan5iap8(request):
 @csrf_exempt
 def thong2tai5(request):
     thong = request.FILES['trs'].read().decode('utf-8')
-    tai = '\r\n'.join(通用轉漢字臺羅.trs2trs(thong, 愛漢字=False))
+    tai = '\r\n'.join(通用轉漢字臺羅.trs2trs('tai5-hua5', thong, 愛漢字=False))
 
     response = HttpResponse(tai, content_type='application/text')
     response['Content-Length'] = len(tai.encode(encoding='utf_8'))
@@ -36,7 +36,7 @@ def thong2tai5(request):
 @csrf_exempt
 def thong2tai5han3(request):
     thong = request.FILES['trs'].read().decode('utf-8')
-    tai = '\r\n'.join(通用轉漢字臺羅.trs2trs(thong, 愛漢字=True))
+    tai = '\r\n'.join(通用轉漢字臺羅.trs2trs('sann-pan', thong, 愛漢字=True))
 
     response = HttpResponse(tai, content_type='application/text')
     response['Content-Length'] = len(tai.encode(encoding='utf_8'))
