@@ -29,7 +29,9 @@ def thong2tai5(request):
 
     response = HttpResponse(tai, content_type='application/text')
     response['Content-Length'] = len(tai.encode(encoding='utf_8'))
-    response['Content-Disposition'] = 'attachment; filename="test.trs"'
+    response['Content-Disposition'] = 'attachment; filename="{}"'.format(
+        request.FILES['trs'].name
+    )
     return response
 
 
@@ -40,5 +42,7 @@ def thong2tai5han3(request):
 
     response = HttpResponse(tai, content_type='application/text')
     response['Content-Length'] = len(tai.encode(encoding='utf_8'))
-    response['Content-Disposition'] = 'attachment; filename="test.trs"'
+    response['Content-Disposition'] = 'attachment; filename="{}"'.format(
+        request.FILES['trs'].name
+    )
     return response
