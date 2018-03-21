@@ -9,9 +9,11 @@ class 單元試驗(TestCase):
     def test_正常lexical(self):
         self.原本 = '<Event desc="lor2" type="lexical" extent="previous"/>'
         self.後來 = '[lor2]'
+
     def test_濟字lexical(self):
         self.原本 = '<Event desc="lor2-lai3" type="lexical" extent="previous"/>'
         self.後來 = '[lor2-lai3]'
+
     def test_別的符號囥佇lexical(self):
         self.原本 = '<Event desc="silence" type="lexical" extent="instantaneous"/>'
         self.後來 = '[silence]'
