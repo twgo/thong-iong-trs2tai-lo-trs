@@ -20,9 +20,9 @@ from kai3bin7.views import thong2tai5, thuan5iap8, thong2tai5han3
 
 urlpatterns = [
     #     path('admin/', admin.site.urls),
-    
+
     path('', thuan5iap8),
     path('thong2tai5', thong2tai5),
     path('thong2tai5han3', thong2tai5han3),
-    
+
 ]

@@ -38,7 +38,6 @@ class 讀資料:
             'sience': 'silence',
             'silecne': 'silence',
             'noisy': 'noise',
-            'silecne': 'noise',
             'nooise': 'noise',
             'npoise': 'noise',
             'emtpy': 'empty',
