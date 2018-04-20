@@ -23,7 +23,11 @@ class 通用轉漢字臺羅:
                     else:
                         這句.append(一个)
                 原本 = ''.join(這句).strip()
-                臺羅 = 轉(None).轉外口(原本)
+                臺羅 = (
+                    轉(None).轉外口(原本)
+                    .replace('-,', ',')
+                    .replace('- ', ' ')
+                )
                 切開 = 原本.split('//')
                 if len(切開) == 1:
                     華語字幕 = ''
