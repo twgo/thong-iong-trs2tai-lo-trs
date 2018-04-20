@@ -20,6 +20,10 @@ class 通用轉漢字臺羅:
                 for 一个 in 一筆:
                     if 一个.startswith('<Event'):
                         這句.append(讀資料.event換掉(一个))
+                    elif 一个.startswith('<Sync'):
+                        這句.append(讀資料.處理時間(一个))
+                    elif 一个.startswith('<Turn'):
+                        這句.append(讀資料.處理時間(一个))
                     else:
                         這句.append(一个)
                 原本 = ''.join(這句).strip()
