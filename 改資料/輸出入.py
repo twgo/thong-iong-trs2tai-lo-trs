@@ -64,3 +64,11 @@ class 讀資料:
                 return 符號[1]
             return '{}  {}'.format(*符號)
         raise RuntimeError('毋知欲按怎處理的event：{}'.format(一逝))
+
+    @classmethod
+    def 處理時間(cls, 字串):
+        揣時間 = re.compile(r'(ime=") ?(\d+\.)(\d+)(")')
+        return 揣時間.sub(
+            lambda g: g.group(1) + g.group(2) + g.group(3)[:3] + g.group(4),
+            字串,
+        )
