@@ -10,9 +10,9 @@ def thuan5iap8(request):
     <h3>原本trs，轉做，臺羅、華語字幕</h3>
     <form method='post' enctype="multipart/form-data" action="/thong2tai5">
     <input name="trs" type="file">
-    <input name="submit" type="submit">
+    <!-- <input name="submit" type="submit"> --!>
     </form>
-    這馬程式是試用階段，可能會當用
+    <span style="text-decoration: line-through;">這馬程式是試用階段，可能會當用</span>
     <h3>原本trs，轉做，漢字、臺羅、華語字幕</h3>
     <form method='post' enctype="multipart/form-data" action="/thong2tai5han3">
     <input name="trs" type="file">
@@ -25,7 +25,7 @@ def thuan5iap8(request):
 @csrf_exempt
 def thong2tai5(request):
     thong = request.FILES['trs'].read().decode('utf-8')
-    tai = '\r\n'.join(通用轉漢字臺羅.trs2trs('tai5-hua5', thong, 愛漢字=False))
+    tai = '\r\n'.join(通用轉漢字臺羅.trs2trs('sann-pan', thong, 愛漢字=False))
 
     response = HttpResponse(tai, content_type='application/text')
     response['Content-Length'] = len(tai.encode(encoding='utf_8'))

@@ -22,7 +22,7 @@ urlpatterns = [
     #     path('admin/', admin.site.urls),
 
     path('', thuan5iap8),
-    path('thong2tai5', thong2tai5),
+#     path('thong2tai5', thong2tai5),
     path('thong2tai5han3', thong2tai5han3),
 
 ]
