@@ -48,6 +48,11 @@ class 通用轉漢字臺羅:
 
     @classmethod
     def 揣漢字(cls, 音標):
+        return re.sub('.*', cls.twisas揣漢字, 音標)
+        return cls.twisas揣漢字(音標)
+
+    @classmethod
+    def twisas揣漢字(cls, 音標):
         if 音標.strip() == '':
             return ''
         conn = HTTPSConnection("twisas.iis.sinica.edu.tw")
