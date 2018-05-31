@@ -8,7 +8,7 @@ from 輸出入 import 通用轉漢字臺羅
 def thuan5iap8(request):
     return HttpResponse('''
     <h3 style="text-decoration: line-through;">原本trs，轉做，臺羅、華語字幕</h3>
-    <!-- 
+    <!--
     <form method='post' enctype="multipart/form-data" action="/thong2tai5">
     <input name="trs" type="file">
     <input name="submit" type="submit">
