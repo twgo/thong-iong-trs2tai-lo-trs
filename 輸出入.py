@@ -48,8 +48,13 @@ class 通用轉漢字臺羅:
 
     @classmethod
     def 揣漢字(cls, 音標):
-        return re.sub('.*', cls.twisas揣漢字, 音標)
-        return cls.twisas揣漢字(音標)
+        han = []
+        for kui, tshuan in enumerate(re.split('({.*?})',  音標)):
+            if kui % 2 == 0:
+                han.append(cls.twisas揣漢字(tshuan))
+            else:
+                han.append(tshuan)
+        return han
 
     @classmethod
     def twisas揣漢字(cls, 音標):
