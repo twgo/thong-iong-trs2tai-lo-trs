@@ -31,6 +31,7 @@ class 通用轉漢字臺羅:
                     轉(None).轉外口(原本)
                     .replace('-,', ',')
                     .replace('- ', ' ')
+                    .rstrip('-')
                 )
                 切開 = 原本.split('//')
                 if len(切開) == 1:
