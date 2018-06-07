@@ -54,7 +54,7 @@ class 通用轉漢字臺羅:
                 han.append(cls.twisas揣漢字(tshuan))
             else:
                 han.append(tshuan)
-        return han
+        return ' '.join(han)
 
     @classmethod
     def twisas揣漢字(cls, 音標):
