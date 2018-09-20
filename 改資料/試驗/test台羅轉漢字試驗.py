@@ -13,3 +13,16 @@ class 單元試驗(TestCase):
             call('sann1 e5 '),
             call(' tsuá--lai5'),
         ])
+        
+    @patch('輸出入.通用轉漢字臺羅.twisas揣漢字')
+    def test_內容2(self, twisas揣漢字mock):
+        twisas揣漢字mock.return_value = ''
+        羅馬字 = 'ao1-i2-ui2-{三民主義}-lai3-te2,leh8-kong1-bin7-tsok4-tsu1-gi7-honnh4-'
+        通用轉漢字臺羅.揣漢字(羅馬字)
+        twisas揣漢字mock.assert_has_calls([
+            call('ao1-i2-ui2-'),
+            call('-lai3-te2,leh8-kong1-bin7-tsok4-tsu1-gi7-honnh4-'),
+        ])
+        
+        
+        
