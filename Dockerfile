@@ -12,7 +12,11 @@ RUN apt-get install -y python3-pip
 RUN pip3 install --upgrade pip
 RUN pip3 install Django
 RUN pip3 install tai5-uan5-gian5-gi2-kang1-ku7
+RUN pip3 install gunicorn
 
 EXPOSE 8000
 
 COPY . .
+
+CMD gunicorn tsuan2.wsgi -b 0.0.0.0:8000 -w 4 --log-level DEBUG
+
