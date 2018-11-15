@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from 輸出入 import 通用轉漢字臺羅
+from 輸出入介面 import 通用轉漢字臺羅
 
 # Create your views here.
 
