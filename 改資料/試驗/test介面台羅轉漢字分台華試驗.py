@@ -15,6 +15,10 @@ class 單元試驗(TestCase):
         self.原來 = '我看你才是丈人看女婿//ah1 qua1 kuann3 oh3 ,li1 ziah1-si3'
         self.答案 = 'ah1 qua1 kuann3 oh3 ,li1 ziah1-si3', '我看你才是丈人看女婿'
 
-    def test_華語佇後壁標準(self):
+    def test_華語佇後壁標(self):
         self.原來 = 'iah1-m3-gorh1 li1 ing4-gai2 ga3 qua1 gong4 zit3 siann3 可是你應該告訴我一聲//'
         self.答案 = 'iah1-m3-gorh1 li1 ing4-gai2 ga3 qua1 gong4 zit3 siann3', '可是你應該告訴我一聲'
+
+    def test_華語佇後壁有空白(self):
+        self.原來 = 'iah1-m3-gorh1 li1 ing4-gai2 ga3 qua1 gong4 zit3 siann3 可是你 應該告訴我一聲//'
+        self.答案 = 'iah1-m3-gorh1 li1 ing4-gai2 ga3 qua1 gong4 zit3 siann3', '可是你 應該告訴我一聲'

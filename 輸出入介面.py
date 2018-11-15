@@ -71,14 +71,20 @@ class 通用轉漢字臺羅:
         data1 = r1.read()  # This will return entire content.
         return json.loads(data1.decode('utf-8'))['漢字']
 
+    華佇後壁 = re.compile('([^a-zA-Z0-9]*)//\Z')
+
     @classmethod
     def 分台華(cls, 原本trs):
-        切開 = 原本trs.split('//', 1)
-        if len(切開) == 1:
-            華語字幕 = ''
+        if 原本trs.endswith('//'):
+            tai, hua = cls.華佇後壁.split(原本trs)[:-1]
+            return tai.strip(), hua.strip()
         else:
-            華語字幕 = 切開[0]
-        return 切開[-1], 華語字幕
+            切開 = 原本trs.split('//', 1)
+            if len(切開) == 1:
+                華語字幕 = ''
+            else:
+                華語字幕 = 切開[0]
+            return 切開[-1], 華語字幕
 
 
 if __name__ == '__main__':
