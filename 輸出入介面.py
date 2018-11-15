@@ -27,13 +27,9 @@ class 通用轉漢字臺羅:
                     else:
                         這句.append(一个)
                 原本 = ''.join(這句).strip()
-                切開 = 原本.split('//', 1)
-                if len(切開) == 1:
-                    華語字幕 = ''
-                else:
-                    華語字幕 = 切開[0]
+                thong, 華語字幕 = cls.分台華(原本)
                 臺羅 = (
-                    轉(None).轉外口(切開[-1])
+                    轉(None).轉外口(thong)
                     .replace('-,', ',')
                     .replace('- ', ' ')
                 )
@@ -74,6 +70,15 @@ class 通用轉漢字臺羅:
             raise RuntimeError()
         data1 = r1.read()  # This will return entire content.
         return json.loads(data1.decode('utf-8'))['漢字']
+
+    @classmethod
+    def 分台華(cls, 原本trs):
+        切開 = 原本trs.split('//', 1)
+        if len(切開) == 1:
+            華語字幕 = ''
+        else:
+            華語字幕 = 切開[0]
+        return 切開[-1], 華語字幕
 
 
 if __name__ == '__main__':
