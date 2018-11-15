@@ -22,3 +22,7 @@ class 單元試驗(TestCase):
     def test_華語佇後壁有空白(self):
         self.原來 = 'iah1-m3-gorh1 li1 ing4-gai2 ga3 qua1 gong4 zit3 siann3 可是你 應該告訴我一聲//'
         self.答案 = 'iah1-m3-gorh1 li1 ing4-gai2 ga3 qua1 gong4 zit3 siann3', '可是你 應該告訴我一聲'
+
+    def test_全漢字閣刪節號(self):
+        self.原來 = '來了...//'
+        self.答案 = '', '來了...'
