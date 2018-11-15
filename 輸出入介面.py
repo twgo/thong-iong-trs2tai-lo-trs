@@ -71,7 +71,7 @@ class 通用轉漢字臺羅:
         data1 = r1.read()  # This will return entire content.
         return json.loads(data1.decode('utf-8'))['漢字']
 
-    華佇後壁 = re.compile('([^a-zA-Z0-9]*)//\Z')
+    華佇後壁 = re.compile(r'([^a-zA-Z0-9]*)//\Z')
 
     @classmethod
     def 分台華(cls, 原本trs):
